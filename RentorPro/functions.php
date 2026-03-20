@@ -27,6 +27,10 @@ function rentor_modern_elite_scripts() {
 	// Tailwind CSS v4 Browser-based (Play CDN)
 	wp_enqueue_script( 'tailwind-v4', 'https://unpkg.com/@tailwindcss/browser@4', array(), null, true );
 
+	// Swiper.js for the Hero Slider
+	wp_enqueue_style( 'swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11.0.0' );
+	wp_enqueue_script( 'swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true );
+
 	// Theme stylesheet
 	wp_enqueue_style( 'rentor-style', get_stylesheet_uri(), array( 'rentor-fonts' ), wp_get_theme()->get( 'Version' ) );
 
