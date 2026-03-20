@@ -42,3 +42,51 @@ function rentor_modern_elite_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'rentor_modern_elite_scripts' );
+
+/**
+ * Add Slider Management to Customizer
+ */
+function rentor_modern_elite_customize_register( $wp_customize ) {
+	// Add Slider Section
+	$wp_customize->add_section( 'rentor_slider_section', array(
+		'title'    => __( 'Hero Slider', 'rentor-modern-elite' ),
+		'priority' => 30,
+	) );
+
+	// Settings for 3 Slides
+	for ( $i = 1; $i <= 3; $i++ ) {
+		// Image
+		$wp_customize->add_setting( "rentor_slide_img_$i", array(
+			'default'   => '',
+			'transport' => 'refresh',
+		) );
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, "rentor_slide_img_$i", array(
+			'label'    => __( "Slide $i Image", 'rentor-modern-elite' ),
+			'section'  => 'rentor_slider_section',
+			'settings' => "rentor_slide_img_$i",
+		) ) );
+
+		// Title
+		$wp_customize->add_setting( "rentor_slide_title_$i", array(
+			'default'   => $i === 1 ? 'Rentals. Homes. Agents. Loans.' : '',
+			'transport' => 'refresh',
+		) );
+		$wp_customize->add_control( "rentor_slide_title_$i", array(
+			'label'    => __( "Slide $i Title", 'rentor-modern-elite' ),
+			'section'  => 'rentor_slider_section',
+			'type'     => 'text',
+		) );
+
+		// Subtitle
+		$wp_customize->add_setting( "rentor_slide_desc_$i", array(
+			'default'   => '',
+			'transport' => 'refresh',
+		) );
+		$wp_customize->add_control( "rentor_slide_desc_$i", array(
+			'label'    => __( "Slide $i Subtitle", 'rentor-modern-elite' ),
+			'section'  => 'rentor_slider_section',
+			'type'     => 'textarea',
+		) );
+	}
+}
+add_action( 'customize_register', 'rentor_modern_elite_customize_register' );
