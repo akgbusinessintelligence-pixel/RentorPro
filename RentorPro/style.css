@@ -31,28 +31,50 @@ Text Domain: rentor-modern-elite
 
 /* Mobile Drawer */
 #mobile-drawer {
-  @apply fixed inset-y-0 left-0 w-72 bg-white shadow-2xl z-[100] transform -translate-x-full transition-transform duration-300 ease-in-out;
+  @apply fixed inset-y-0 left-0 w-[85%] max-w-[320px] bg-white shadow-2xl z-[100] transform -translate-x-full transition-transform duration-300 ease-in-out;
 }
 
 #mobile-drawer.open {
   @apply translate-x-0;
 }
 
+#mobile-menu-items li a {
+  @apply flex items-center w-full py-4 px-6 text-lg font-bold text-slate-700 hover:bg-slate-50 transition-all border-b border-slate-50 active:bg-slate-100;
+}
+
+#mobile-menu-items li:last-child a {
+  @apply border-b-0;
+}
+
+/* Fluid Typography for Hero */
+.hero-title {
+  font-size: clamp(1.875rem, 5vw + 1rem, 3.75rem);
+  line-height: 1.1;
+}
+
+.hero-desc {
+  font-size: clamp(0.875rem, 2vw + 0.5rem, 1.125rem);
+}
+
 #drawer-overlay {
-  @apply fixed inset-0 bg-slate-900/50 z-[90] opacity-0 pointer-events-none transition-opacity duration-300;
+  @apply fixed inset-0 bg-slate-900/60 z-[90] opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-[2px];
 }
 
 #drawer-overlay.open {
   @apply opacity-100 pointer-events-auto;
 }
 
-/* Bottom Nav */
+/* Bottom Nav Refinement */
 .bottom-nav-item {
-  @apply flex flex-col items-center justify-center gap-1 text-[10px] font-bold text-slate-400 hover:text-zillow-blue transition-colors;
+  @apply flex flex-col items-center justify-center gap-0.5 text-[9px] uppercase tracking-tighter font-extrabold text-slate-400 hover:text-zillow-blue transition-all active:scale-90;
 }
 
 .bottom-nav-item.active {
   @apply text-zillow-blue;
+}
+
+.bottom-nav-item svg {
+  @apply w-6 h-6 transition-transform;
 }
 
 .custom-logo-link img {
@@ -62,12 +84,12 @@ Text Domain: rentor-modern-elite
 /* Custom styles that aren't easily handled by utility classes */
 @layer base {
   body {
-    @apply font-inter text-slate-900 bg-white;
+    @apply font-inter text-slate-900 bg-white antialiased;
   }
 }
 
 @layer components {
   .btn-circle {
-    @apply w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center text-xl text-zillow-blue hover:bg-slate-50 hover:shadow-sm transition-all pb-1 cursor-pointer;
+    @apply w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center text-xl text-zillow-blue hover:bg-slate-50 hover:shadow-sm transition-all pb-1 cursor-pointer active:scale-95;
   }
 }
