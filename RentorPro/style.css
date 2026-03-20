@@ -23,7 +23,11 @@ Text Domain: rentor-modern-elite
 }
 
 #primary-menu li a {
-  @apply hover:text-zillow-blue transition-colors px-2;
+  @apply hover:text-zillow-blue transition-colors px-1 md:px-2;
+}
+
+.custom-logo-link img {
+  @apply h-6 md:h-8 w-auto max-w-full;
 }
 
 /* Custom styles that aren't easily handled by utility classes */
