@@ -18,6 +18,14 @@ Text Domain: rentor-modern-elite
   --font-inter: "Inter", sans-serif;
 }
 
+#primary-menu li {
+  @apply list-none inline-block;
+}
+
+#primary-menu li a {
+  @apply hover:text-zillow-blue transition-colors px-2;
+}
+
 /* Custom styles that aren't easily handled by utility classes */
 @layer base {
   body {

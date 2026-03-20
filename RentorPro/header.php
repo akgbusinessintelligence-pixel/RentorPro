@@ -10,12 +10,20 @@
 
 <header class="bg-white border-b border-slate-200 sticky top-0 z-50 py-2">
     <div class="container mx-auto px-4 flex justify-between items-center max-w-7xl">
+        
+        <!-- Left Menu (Zillow Style) -->
         <nav class="hidden md:flex gap-6 text-sm font-medium">
-            <a href="#" class="hover:text-zillow-blue transition-colors">Buy</a>
-            <a href="#" class="hover:text-zillow-blue transition-colors">Rent</a>
-            <a href="#" class="hover:text-zillow-blue transition-colors">Sell</a>
-            <a href="#" class="hover:text-zillow-blue transition-colors">Home Loans</a>
-            <a href="#" class="hover:text-zillow-blue transition-colors">Agent finder</a>
+            <?php
+            wp_nav_menu(
+                array(
+                    'theme_location' => 'menu1',
+                    'menu_id'        => 'primary-menu',
+                    'container'      => false,
+                    'items_wrap'     => '%3$s', // Remove <ul> wrapper for custom styling
+                    'fallback_cb'    => false,
+                )
+            );
+            ?>
         </nav>
 
         <div class="flex-shrink-0">
@@ -32,14 +40,13 @@
             ?>
         </div>
 
-        <nav class="hidden md:flex gap-6 text-sm font-medium">
+        <!-- Right Side Links (ハードコードされたものも残しつつ、管理画面で制御したいかもしれないが、一旦シンプルに) -->
+        <nav class="hidden md:flex gap-6 text-sm font-medium items-center">
             <a href="#" class="hover:text-zillow-blue transition-colors">Manage Rentals</a>
-            <a href="#" class="hover:text-zillow-blue transition-colors">Advertise</a>
-            <a href="#" class="hover:text-zillow-blue transition-colors">Help</a>
-            <a href="#" class="hover:text-zillow-blue transition-colors font-semibold">Sign In</a>
+            <a href="#" class="hover:text-zillow-blue transition-colors font-semibold border-l border-slate-200 pl-6 ml-4">Sign In</a>
         </nav>
 
-        <!-- Mobile Menu Toggle (Simplified) -->
+        <!-- Mobile Menu Toggle -->
         <button class="md:hidden p-2 text-slate-600">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>

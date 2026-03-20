@@ -10,10 +10,13 @@ if ( ! function_exists( 'rentor_modern_elite_setup' ) ) :
 		add_theme_support( 'custom-logo' );
 		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 
-		register_nav_menus( array(
-			'primary' => esc_html__( 'Primary Menu', 'rentor-modern-elite' ),
-		) );
-	}
+		register_nav_menus(
+		array(
+			'menu1'   => esc_html__( 'Primary Menu', 'rentor-modern-elite' ),
+			'footer'  => esc_html__( 'Footer Menu', 'rentor-modern-elite' ),
+		)
+	);
+}
 endif;
 add_action( 'after_setup_theme', 'rentor_modern_elite_setup' );
 
