@@ -6,7 +6,6 @@ Author URI: https://github.com/RentorPro
 Description: A premium, professional WordPress theme for real estate rental listings with a modern, clean aesthetic using Tailwind CSS v4.
 Version: 1.1.0
 License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: rentor-modern-elite
 */
 
@@ -18,12 +17,42 @@ Text Domain: rentor-modern-elite
   --font-inter: "Inter", sans-serif;
 }
 
+#primary-menu li, #mobile-menu-items li {
+  @apply list-none;
+}
+
 #primary-menu li {
-  @apply list-none inline-block;
+  @apply inline-block;
 }
 
 #primary-menu li a {
   @apply hover:text-zillow-blue transition-colors px-1 md:px-2;
+}
+
+/* Mobile Drawer */
+#mobile-drawer {
+  @apply fixed inset-y-0 left-0 w-72 bg-white shadow-2xl z-[100] transform -translate-x-full transition-transform duration-300 ease-in-out;
+}
+
+#mobile-drawer.open {
+  @apply translate-x-0;
+}
+
+#drawer-overlay {
+  @apply fixed inset-0 bg-slate-900/50 z-[90] opacity-0 pointer-events-none transition-opacity duration-300;
+}
+
+#drawer-overlay.open {
+  @apply opacity-100 pointer-events-auto;
+}
+
+/* Bottom Nav */
+.bottom-nav-item {
+  @apply flex flex-col items-center justify-center gap-1 text-[10px] font-bold text-slate-400 hover:text-zillow-blue transition-colors;
+}
+
+.bottom-nav-item.active {
+  @apply text-zillow-blue;
 }
 
 .custom-logo-link img {
